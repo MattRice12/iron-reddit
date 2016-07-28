@@ -1,0 +1,24 @@
+
+  <div class="row">
+    <p><%= comment.body %></p>
+    <div class="comment-content-block-show">
+      <div class="col 2">
+
+        <small class="upvote"><%= link_to "Like", upvotes_path(comment_id: comment.id), method: :post %></small>
+
+        <small class="vote_count"><%= (comment.upvotes_count) - (comment.downvotes_count) %></small>
+
+        <small class="downvote"><%= link_to "Hate", downvotes_path(comment_id: comment.id), method: :post %></small>
+
+      </div>
+
+
+      <div class="col 10">
+        <big class="comment-body"><%= comment.body %></big>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col 6 offset-6 page-button"><span class="flow-text"><%= link_to "Back", root_path %></span></div>
+</div>

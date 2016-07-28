@@ -1,0 +1,17 @@
+
+<div class="row new-post">
+
+  <h2 class="new-post-title"><%= form_title %></h2>
+
+</div>
+
+<%= form_for(comment) do |f| %>
+  <div><label for="body">Comment Name: </label></div>
+
+  <div><%= f.text_field :title, placeholder: "Stop Writing Clickbait!!! Click Here to Find Out How!" %></div>
+
+  <a class="waves-effect waves-light btn">
+    <%= f.submit %>
+  </a>
+
+<% end %>

@@ -57,6 +57,9 @@ end
 
 30.times do
   Link.create!(title: options.sample)
+  5.times do
+    Comment.create!(body: options.sample)
+  end
 end
 
 300.times do

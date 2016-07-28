@@ -60,5 +60,5 @@ end
 end
 
 300.times do
-  Vote.create!(link_id: rand(1..30))
+  Upvote.create!(link_id: rand(1..30))
 end

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :downvotes
-  resources :votes
+  resources :upvotes
   resources :links do
-    post 'vote' => "links#vote", on: :member
+    post 'upvote' => "links#upvote", on: :member
     post 'downvote' => "links#downvote", on: :member
   end
 

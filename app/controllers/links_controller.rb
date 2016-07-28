@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   def index
     render template: 'links/index.html.erb', locals: {
-      links: Link.all.order(votes_count: :desc, title: :desc).page(params[:page])
+      links: Link.all.order(upvotes_count: :desc, title: :desc).page(params[:page])
     }
   end
 
@@ -23,9 +23,9 @@ class LinksController < ApplicationController
 
   def create
     link = Link.new(link_params)
-    vote = Vote.new(link_id: params[:link_id])
+    upvote = Upvote.new(link_id: params[:link_id])
     if link.save
-      vote.save
+      upvote.save
       redirect_to root_path
     else
       flash[:alert] = "Could not be created due to errors."

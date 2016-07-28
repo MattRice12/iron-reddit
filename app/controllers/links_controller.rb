@@ -33,6 +33,25 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    render locals: {
+      list: List.find(params.fetch(:id))
+    }
+  end
+
+  def update
+    list = List.find(params.fetch(:id))
+    if list.update(list_params)
+      redirect_to root_path
+    else
+      flash[:alert] = "Could not be edited due to errors."
+      render template: 'lists/edit.html.erb', locals: {
+        list: list
+      }
+    end
+
+  end
+
   private
   def list_params
     params.require(:list).permit(:title)

@@ -1,0 +1,78 @@
+@import 'materialize';
+
+
+/************** GENERAL ****************/
+
+body {
+  margin-bottom: 40px;
+}
+
+
+.row {
+  margin: 0;
+  .col {
+    .page-button /*WHY WONT YOU FUCKING WORK*/{
+      float: right;
+      padding-right: 0;
+    }
+  }
+}
+
+.upvote {
+  color: #FF4400;
+}
+
+.downvote {
+  color: #9393FF;
+}
+
+nav.pagination {
+  padding: 10px;
+  a {
+    position: relative;
+    top: -10px;
+  }
+  span.page.current {
+    position: relative;
+    top: -10px;
+  }
+}
+
+.btn a {
+  color: white;
+  font-weight: bold;
+}
+
+/************** INDEX ****************/
+
+.link-content-block-index {
+  display: flex;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid gray;
+  background: #F5F8FA;
+  &:hover {
+    background: white;
+  }
+}
+
+/************** SHOW ****************/
+
+.link-content-block-show {
+  display: flex;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid gray;
+  background: #F5F8FA;
+}
+
+/************** NEW POST ****************/
+
+.new-post-title {
+  margin: 0;
+}
+
+.new-post {
+  display: flex;
+  margin: 10px;
+}

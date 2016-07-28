@@ -1,15 +1,14 @@
 class VotesController < ApplicationController
   def create
-    vote = Vote.new(vote_params)
-    if vote.save
-      redirect_to "./"
-    else
-      render
-    end
+    Vote.create!(link_id: params[:link_id])
+    redirect_to :back
   end
 
-  private
-  def vote_params
-    params.require(:vote).permit(:list_id)
+  def destroy ### WHY DID THIS STOP WORKING
+    vote = Vote.find(params.fetch(:id))
+    # vote = Vote.where(link_id: link.id)
+    vote.destroy
+    redirect_to :back
   end
+
 end

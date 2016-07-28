@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20160727230554) do
   enable_extension "plpgsql"
 
   create_table "links", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "votes_count"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",                   null: false
+    t.integer  "votes_count", default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "votes", force: :cascade do |t|

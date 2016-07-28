@@ -1,0 +1,27 @@
+<div class="waves-effect waves-light btn"><%= link_to "New Post", new_link_path %></div>
+
+<div class="row">
+<% links.each do |link| %>
+    <div class="link-content-block-index">
+      <div class="col 2">
+
+        <small class="upvote"><%= link_to "Like", votes_path(link_id: link.id), method: :post %></small>
+
+        <small class="vote_count"><%= link.votes_count %></small>
+
+
+          <small class="downvote">
+            <%= link_to "Hate", { controller: "votes", action: "destroy", id: Vote.where(link_id: link.id) }, method: :delete %>
+          </small>
+
+      </div>
+      <div class="col 10">
+        <big class="link-title"><%= link_to link.title, link %></big>
+      </div>
+    </div>
+<% end %>
+</div>
+
+<div class="row">
+  <div class="col 6 offset-6 page-button"><span class="flow-text"><%= paginate links %></span></div>
+</div>

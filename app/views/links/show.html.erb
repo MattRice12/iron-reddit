@@ -1,0 +1,26 @@
+
+  <div class="row">
+    <p><%= link.title %></p>
+    <div class="link-content-block-show">
+      <div class="col 2">
+
+        <small class="upvote"><%= link_to "Like", votes_path(link_id: link.id), method: :post %></small>
+
+        <small class="vote_count"><%= link.votes_count %></small>
+
+        <small class="downvote">
+          <%= link_to "Hate", { controller: "votes", action: "destroy", id: Vote.where(link_id: link.id) }, method: :delete %>
+        </small>
+
+      </div>
+
+
+      <div class="col 10">
+        <big class="link-title"><%= link.title %></big>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col 6 offset-6 page-button"><span class="flow-text"><%= link_to "Back", root_path %></span></div>
+</div>

@@ -9,6 +9,14 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <% flash.each do |key, value| %>
+      <p> <%= "#{key.titleize}: #{value}" %></p>
+    <% end %>
+    <div class="container">
+      <%= render "shared/nav" unless @disable_nav %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

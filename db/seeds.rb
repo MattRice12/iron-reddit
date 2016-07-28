@@ -47,7 +47,9 @@ object_3 = ["Dog", "Child", "Boy", "Girl", "Dane", "Elephant", "Cat", "Table", "
 
 10.times do
   Link.create!(title: "#{buzz_1.sample} How #{adjective_1.sample} #{celeb_1.sample} #{verb_1.sample}!!")
+
   Link.create!(title: "#{rand(2..13)} Ways #{verb_phrase_2.sample} #{noun_2.sample}!!")
+
   Link.create!(title: "#{buzz_start_3.sample} #{rand(1..8)} #{appendage_3.sample} #{object_3.sample}! #{buzz_end_3.sample}")
 end
 

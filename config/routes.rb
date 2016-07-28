@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  resources :downvotes
   resources :votes
   resources :links do
     post 'vote' => "links#vote", on: :member
+    post 'downvote' => "links#downvote", on: :member
   end
 
   root 'links#index'

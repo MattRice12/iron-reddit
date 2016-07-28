@@ -4,11 +4,9 @@ class VotesController < ApplicationController
     redirect_to :back
   end
 
-  def destroy ### WHY DID THIS STOP WORKING
+  def destroy
     vote = Vote.find(params.fetch(:id))
-    # vote = Vote.where(link_id: link.id)
     vote.destroy
     redirect_to :back
   end
-
 end

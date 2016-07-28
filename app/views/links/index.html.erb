@@ -7,12 +7,9 @@
 
         <small class="upvote"><%= link_to "Like", votes_path(link_id: link.id), method: :post %></small>
 
-        <small class="vote_count"><%= link.votes_count %></small>
+        <small class="vote_count"><%= (link.votes_count) - (link.downvotes_count) %></small>
 
-
-          <small class="downvote">
-            <%= link_to "Hate", { controller: "votes", action: "destroy", id: Vote.where(link_id: link.id) }, method: :delete %>
-          </small>
+        <small class="downvote"><%= link_to "Hate", downvotes_path(link_id: link.id), method: :post %></small>
 
       </div>
       <div class="col 10">

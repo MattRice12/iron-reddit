@@ -9,48 +9,54 @@
 
 ################### OPTION 1 ##################
 
-buzz_1 = ["You'll Never Believe", "Click Here To See"]
+BUZZ_1 = ["You'll Never Believe", "Click Here To See"]
 
-adjective_1 = ["Fat", "Skinny", "Tall", "Enormous", "Dumb", "Ugly", "Beautiful"]
+ADJECTIVE_1 = ["Fat", "Skinny", "Tall", "Enormous", "Dumb", "Ugly", "Beautiful"]
 
-celeb_1 = ["J-Lo", "Kim Kardashian", "Kanye", "Taylor Swift", "The World", "America", "Donald Trump"]
+CELEB_1 = ["J-Lo", "Kim Kardashian", "Kanye", "Taylor Swift", "The World", "America", "Donald Trump"]
 
-verb_1 = ["Is", "Looks In This Video", "Became", "Will Be"]
+VERB_1 = ["Is", "Looks In This Video", "Became", "Will Be"]
 
-# option_1 = "#{buzz_1.sample} How #{adjective_1.sample} This #{noun_1.sample} #{verb_1.sample}!!"
+def option_1
+  "#{BUZZ_1.sample} How #{ADJECTIVE_1.sample} #{CELEB_1.sample} #{VERB_1.sample}!!"
+end
 
 ################## OPTION 1 ###################
 
 ################## OPTION 2 ###################
 
-verb_phrase_2 = ["Kim Kardashian Pleases Her", "To Please Your", "To Feed Your", "To Get A", "To Get Over Your", "To Love Your", "To Seduce Your", "To Kill Your"]
+VERB_PHRASE_2 = ["Kim Kardashian Pleases Her", "To Please Your", "To Feed Your", "To Get A", "To Get Over Your", "To Love Your", "To Seduce Your", "To Kill Your"]
 
-noun_2 = ["Man", "Woman", "Dog", "Wife", "Husband", "Ex", "Girlfriend", "Boyfriend", "Neighbor", "Dane", "Crush", "Special Someone"]
+NOUN_2 = ["Man", "Woman", "Dog", "Wife", "Husband", "Ex", "Girlfriend", "Boyfriend", "Neighbor", "Dane", "Crush", "Special Someone"]
 
-# option_2 = "#{rand(1..13)} Ways #{verb_phrase_2.sample} #{noun_2.sample}!!"
+def option_2
+  "#{rand(5..13)} Ways #{VERB_PHRASE_2.sample} #{NOUN_2.sample}!!"
+end
 
 ################## OPTION 2 ###################
 
 ################## OPTION 3 ###################
 
-buzz_start_3 = ["Lab Created", "No Mother Could Love This", "Circuses Won't Even Show This", "What No One Is Talking About: Genetically Created"]
+BUZZ_START_3 = ["Lab Created", "No Mother Could Love This", "Circuses Won't Even Show This", "What No One Is Talking About: Genetically Created"]
 
-buzz_end_3 = ["Has Science Gone Too Far???", "1 Like 1 Prayer!!", "Why Is No One Talking About This?!"]
+BUZZ_END_3 = ["Has Science Gone Too Far???", "1 Like 1 Prayer!!", "Why Is No One Talking About This?!"]
 
-appendage_3 = ["Legged", "Armed", "Headed", "Nosed", "Eared", "Winged", "Brained"]
+APPENDAGE_3 = ["Legged ", "Armed ", "Headed ", "Nosed ", "Eared ", "Winged ", "Brained "]
 
-object_3 = ["Dog", "Child", "Boy", "Girl", "Dane", "Elephant", "Cat", "Table", "Chair"]
+OBJECT_3 = ["Dog ", "Child ", "Boy ", "Girl ", "Dane ", "Elephant ", "Cat ", "Table ", "Chair "]
 
-# option_3 = "#{buzz_start_3.sample} #{rand(1..8)} #{appendage_3.sample} #{object_3.sample}! #{buzz_end_3.sample}"
+def option_3
+  BUZZ_START_3.sample + " #{rand(1..8)} " + APPENDAGE_3.sample + OBJECT_3.sample + BUZZ_END_3.sample
+end
 
 ################## OPTION 3 ###################
 
-10.times do
-  Link.create!(title: "#{buzz_1.sample} How #{adjective_1.sample} #{celeb_1.sample} #{verb_1.sample}!!")
+def options
+  [option_1, option_2, option_3]
+end
 
-  Link.create!(title: "#{rand(2..13)} Ways #{verb_phrase_2.sample} #{noun_2.sample}!!")
-
-  Link.create!(title: "#{buzz_start_3.sample} #{rand(1..8)} #{appendage_3.sample} #{object_3.sample}! #{buzz_end_3.sample}")
+30.times do
+  Link.create!(title: options.sample)
 end
 
 300.times do

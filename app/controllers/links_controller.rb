@@ -21,4 +21,20 @@ class LinksController < ApplicationController
     }
   end
 
+  def create
+    list = List.new(list_params)
+    if foodtruck.save
+      redirect_to root_path
+    else
+      flash[:alert] = "Could not be created due to errors."
+      render template: 'lists/new.html.erb', locals: {
+        list: list
+      }
+    end
+  end
+
+  private
+  def list_params
+    params.require(:list).permit(:title)
+  end
 end

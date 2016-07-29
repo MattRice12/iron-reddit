@@ -3,18 +3,41 @@
 
 /************** GENERAL ****************/
 
+
 body {
   margin-bottom: 40px;
+  width: 100%;
 }
 
-.row {
-  margin: 0;
-  .col {
-    .page-button /*WHY WONT YOU FUCKING WORK*/{
-      float: right;
-      padding-right: 0;
+.container {
+  width: 100%;
+  .blueit {
+    font-size: 400%;
+  }
+  .new-board {
+    float: right;
+    top: 30px;
+  }
+  .row {
+    margin: 0;
+    border: 1px solid gray;
+
+    .col {
+      .page-button /*WHY WONT YOU FUCKING WORK*/{
+        float: right;
+        padding-right: 0;
+      }
     }
   }
+}
+
+
+.link-board-show {
+  width: 100%;
+}
+
+.home-link {
+  margin-right: 10px;
 }
 
 .upvote {
@@ -25,6 +48,13 @@ body {
   color: #9393FF;
 }
 
+.nav-boards {
+  float: left;
+  display: inline-flex;
+  .board-title {
+    margin: 10px;
+  }
+}
 nav.pagination {
   padding: 10px;
   a {
@@ -81,4 +111,20 @@ h6 {
 .new-post {
   display: flex;
   margin: 10px;
+}
+
+/************** BOARD-SHOW ****************/
+
+.board-content-block-show {
+  display: flex;
+  font-size: 200%;
+  font-weight: bold;
+  border: 1px solid gray;
+  background: #F5F8FA;
+}
+
+.board-name-show {
+  position: relative;
+  top: -58px;
+  left: 160px;
 }

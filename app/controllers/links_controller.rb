@@ -9,7 +9,8 @@ class LinksController < ApplicationController
     if Link.exists?(params[:id])
       render template: 'links/show.html.erb', locals: {
         link: Link.find(params[:id]),
-        comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC")
+        comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC"),
+        board: Board.joins(:links).find_by("boards.id = links.board_id AND links.id = #{params[:id]}")
       }
     else
       render html: "Not Found", status: 404

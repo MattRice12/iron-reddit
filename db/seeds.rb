@@ -51,17 +51,41 @@ end
 
 ################## OPTION 3 ###################
 
+################## COMMENTS ##################
+
+STANDALONE = ["LMFAO!", "Wat", "First", "lol", "that's dumb", "neat", "have an upvote", "clickbait warning", "repost"]
+
+START = ["LMFAO! That's so ", "You're so ", "ur ", "your "]
+
+MID = ["dumb", "funny", "lame"]
+
+################# COMMENTS ###################
+
+################# SUBREDDITS ###################
+
+subreddits = ["games", "art", "bikes", "movies", "music", "news", "coding", "front", "funny", "Austin", "AskScience"]
+
+
+################# SUBREDDITS ###################
+
+
 def options
   [option_1, option_2, option_3]
 end
 
-30.times do
-  Link.create!(title: options.sample)
-
+def comment_phrases
+  [STANDALONE.sample, [START.sample + MID.sample].join]
 end
 
-40.times do
-  Comment.create!(body: options.sample, link_id: rand(1..30))
+subreddits.each do |sub|
+  board = Board.create!(name: "/r/#{sub}")
+  3.times do
+    Link.create!(title: options.sample, board_id: board.id)
+  end
+end
+
+100.times do
+  Comment.create!(body: comment_phrases.sample, link_id: rand(1..30))
 end
 
 300.times do

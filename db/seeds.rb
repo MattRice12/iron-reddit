@@ -43,7 +43,7 @@ BUZZ_END_3 = ["Has Science Gone Too Far???", "1 Like 1 Prayer!!", "Why Is No One
 
 APPENDAGE_3 = ["Legged ", "Armed ", "Headed ", "Nosed ", "Eared ", "Winged ", "Brained "]
 
-OBJECT_3 = [". Dog ", ". Child ", ". Boy ", ". Girl ", ". Dane ", ". Elephant ", ". Cat ", ". Table ", ". Chair "]
+OBJECT_3 = [" Dog .", " Child .", " Boy .", " Girl .", " Dane .", " Elephant .", " Cat .", " Table .", " Chair ."]
 
 def option_3
   BUZZ_START_3.sample + " #{rand(1..8)} " + APPENDAGE_3.sample + OBJECT_3.sample + BUZZ_END_3.sample
@@ -77,8 +77,9 @@ def comment_phrases
   [STANDALONE.sample, [START.sample + MID.sample].join]
 end
 
-subreddits.each do |sub|
-  board = Board.create!(name: sub)
+subreddits.each do |subr|
+  board = Board.new(name: subr)
+  board.save
   3.times do
     Link.create!(title: options.sample, board_id: board.id)
   end

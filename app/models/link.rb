@@ -1,4 +1,5 @@
 class Link < ApplicationRecord
+  belongs_to :board
   has_many :upvotes
   has_many :downvotes
   has_many :comments

@@ -1,9 +1,8 @@
 class BoardsController < ApplicationController
   def index
     render template: 'boards/index.html.erb', locals: {
-      boards: Board.all,
-      link: Link.where(board_id: params[:board_id]),
-      links: Link.group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page])
+      boards: Board.all
+
     }
   end
 
@@ -14,7 +13,9 @@ class BoardsController < ApplicationController
       board = Board.find_by(name: params[:name])
       render template: 'boards/show.html.erb', locals: {
         board: board,
+
         comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC"),
+
         links: Link.where(board_id: board.id).group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page])
       }
     else

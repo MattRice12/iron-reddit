@@ -6,9 +6,23 @@
 </div>
 
 <%= form_for(link) do |f| %>
-  <div><label for="body">Link Name: </label></div>
 
-  <div><%= f.text_field :title, placeholder: "Stop Writing Clickbait!!! Click Here to Find Out How!" %></div>
+  <div class="input-field col s12 select-box">
+    <select class="select-board">
+        <option value="" disabled selected>Select Board</option>
+
+        <% Board.all.each do |board| %>
+          <option value="<%= board.id %>"><%= board.name %></option>
+        <% end %>
+
+    </select>
+  </div>
+
+
+  <div>
+    <div><label for="body">Link Name: </label></div>
+    <div><%= f.text_field :title, placeholder: "Stop Writing Clickbait!!! Click Here to Find Out How!" %></div>
+  </div>
 
   <a>
     <%= f.submit class: 'btn'%>

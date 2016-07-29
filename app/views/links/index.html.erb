@@ -1,9 +1,9 @@
-<div class="waves-effect waves-light btn"><%= link_to "New Post", new_link_path %></div>
+<a href=../links/new class="waves-effect waves-light btn">New Post</a>
 
-<div class="row">
+<ol class="row">
 <% links.each do |link| %>
-    <div class="link-content-block-index">
-      <div class="col 2">
+    <li class="link-content-block-index">
+      <div class="col 2 like-hate">
 
         <small class="upvote"><%= link_to "Like", upvotes_path(link_id: link.id), method: :post %></small>
 
@@ -13,11 +13,18 @@
 
       </div>
       <div class="col 10">
-        <big class="link-title"><%= link_to link.title, link %></big>
+        <big class="link-title"><%= link_to link.title, "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></big>
+        <h6>
+          <sup><%= link_to pluralize(link.comments.count, 'Comment'), link %></sup>
+          <sup><%= link_to "Share", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+          <sup><%= link_to "Save", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+          <sup><%= link_to "Hide", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+          <sup><%= link_to "Report", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+        </h6>
       </div>
-    </div>
+    </li>
 <% end %>
-</div>
+</ol>
 
 <div class="row">
   <div class="col 6 offset-6 page-button"><span class="flow-text"><%= paginate links %></span></div>

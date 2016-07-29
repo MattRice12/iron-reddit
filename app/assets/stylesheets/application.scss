@@ -7,7 +7,6 @@ body {
   margin-bottom: 40px;
 }
 
-
 .row {
   margin: 0;
   .col {
@@ -38,16 +37,23 @@ nav.pagination {
   }
 }
 
-.btn a {
-  color: white;
-  font-weight: bold;
+h6 {
+  bottom-margin: 0;
+  sup {
+    font-weight: bold;
+    margin-right: 10px;
+  }
 }
 
+.like-hate {
+  min-width: 90px;
+}
 /************** INDEX ****************/
 
 .link-content-block-index {
   display: flex;
   padding: 10px;
+  padding-bottom: 0;
   margin: 0px;
   border: 1px solid gray;
   background: #F5F8FA;

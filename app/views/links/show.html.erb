@@ -3,7 +3,7 @@
 
   <div class="link-content-block-show">
 
-    <div class="col 2">
+    <div class="col 2 like-hate">
       <small class="upvote"><%= link_to "Like", upvotes_path(link_id: link.id), method: :post %></small>
 
       <small class="vote_count"><%= (link.upvotes_count) - (link.downvotes_count) %></small>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="col 10">
-      <big class="link-title-show"><%= link.title %></big>
+      <big class="link-title-show"><%= link_to link.title, "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></big>
     </div>
 
   </div>
@@ -21,9 +21,9 @@
 <div class="row">
   <div>
     <div>
-      <% link.comments.each do |comment| %>
+      <% link.comments.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC").each do |comment| %>
         <div class="link-content-block-index">
-          <div class="col 2">
+          <div class="col 2 like-hate">
 
             <small class="upvote"><%= link_to "Like", comment_upvotes_path(comment_id: comment.id), method: :post %></small>
 
@@ -34,7 +34,13 @@
           </div>
 
           <div class="col 10">
-            <big class="link-title-show"><%= comment.body %></big>
+            <h6 class="link-title-show"><%= comment.body %></h6>
+            <h6>
+              <sup><%= link_to "Share", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+              <sup><%= link_to "Save", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+              <sup><%= link_to "Hide", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+              <sup><%= link_to "Report", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
+            </h6>
           </div>
         </div>
       <% end %>
@@ -43,5 +49,5 @@
 </div>
 
 <div class="row">
-  <div class="col 6 offset-6 page-button"><span class="flow-text"><%= link_to "Back", root_path %></span></div>
+  <a href=../ class="waves-effect waves-light btn">Back</a>
 </div>

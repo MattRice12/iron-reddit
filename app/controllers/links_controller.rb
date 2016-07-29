@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   def index
     render template: 'links/index.html.erb', locals: {
-      links: Link.group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page])
+      links: Link.group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page]),
     }
   end
 
@@ -9,7 +9,7 @@ class LinksController < ApplicationController
     if Link.exists?(params[:id])
       render template: 'links/show.html.erb', locals: {
         link: Link.find(params[:id]),
-        comments: Comment.where(id: params.fetch(:id))
+        comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC")
       }
     else
       render html: "Not Found", status: 404

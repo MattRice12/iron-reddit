@@ -7,7 +7,7 @@
 
         <small class="upvote"><%= link_to "Like", upvotes_path(link_id: link.id), method: :post %></small>
 
-        <small class="vote_count"><%= (link.upvotes_count) - (link.downvotes_count) %></small>
+        <small class="vote_count"><%= link.upvotes_count - link.downvotes_count %></small>
 
         <small class="downvote"><%= link_to "Hate", downvotes_path(link_id: link.id), method: :post %></small>
 

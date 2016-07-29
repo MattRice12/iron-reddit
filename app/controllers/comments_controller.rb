@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def index
     render template: 'comments/index.html.erb', locals: {
-      comments: Comment.group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page])
+      comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC").page(params[:page])
     }
   end
 

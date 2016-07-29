@@ -43,7 +43,7 @@ BUZZ_END_3 = ["Has Science Gone Too Far???", "1 Like 1 Prayer!!", "Why Is No One
 
 APPENDAGE_3 = ["Legged ", "Armed ", "Headed ", "Nosed ", "Eared ", "Winged ", "Brained "]
 
-OBJECT_3 = ["Dog ", "Child ", "Boy ", "Girl ", "Dane ", "Elephant ", "Cat ", "Table ", "Chair "]
+OBJECT_3 = [". Dog ", ". Child ", ". Boy ", ". Girl ", ". Dane ", ". Elephant ", ". Cat ", ". Table ", ". Chair "]
 
 def option_3
   BUZZ_START_3.sample + " #{rand(1..8)} " + APPENDAGE_3.sample + OBJECT_3.sample + BUZZ_END_3.sample
@@ -57,9 +57,11 @@ end
 
 30.times do
   Link.create!(title: options.sample)
-  5.times do
-    Comment.create!(body: options.sample)
-  end
+
+end
+
+40.times do
+  Comment.create!(body: options.sample, link_id: rand(1..30))
 end
 
 300.times do

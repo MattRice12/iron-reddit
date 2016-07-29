@@ -17,19 +17,19 @@ ActiveRecord::Schema.define(version: 20160728195526) do
 
   create_table "comment_downvotes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "comments_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["comments_id"], name: "index_comment_downvotes_on_comments_id", using: :btree
+    t.integer  "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_downvotes_on_comment_id", using: :btree
     t.index ["user_id"], name: "index_comment_downvotes_on_user_id", using: :btree
   end
 
   create_table "comment_upvotes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "comments_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["comments_id"], name: "index_comment_upvotes_on_comments_id", using: :btree
+    t.integer  "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_upvotes_on_comment_id", using: :btree
     t.index ["user_id"], name: "index_comment_upvotes_on_user_id", using: :btree
   end
 
@@ -81,9 +81,9 @@ ActiveRecord::Schema.define(version: 20160728195526) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "comment_downvotes", "comments", column: "comments_id"
+  add_foreign_key "comment_downvotes", "comments"
   add_foreign_key "comment_downvotes", "users"
-  add_foreign_key "comment_upvotes", "comments", column: "comments_id"
+  add_foreign_key "comment_upvotes", "comments"
   add_foreign_key "comment_upvotes", "users"
   add_foreign_key "comments", "links"
   add_foreign_key "comments", "users"

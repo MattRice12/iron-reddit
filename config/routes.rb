@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post 'comment_upvote' => "comment#comment_upvote", on: :member
     post 'comment_downvote' => "comment#comment_downvote", on: :member
   end
+
   resources :users do
     post 'upvote' => "links#upvote", on: :member
     post 'downvote' => "links#downvote", on: :member
@@ -18,14 +19,14 @@ Rails.application.routes.draw do
     post 'downvote' => "links#downvote", on: :member
   end
 
-  resources :boards
+  # get ':board', to: 'boards#index', as: :board
+  resources :boards, path: '/r/', param: :name
   resources :downvotes
   resources :upvotes
   resources :comment_downvotes
   resources :comment_upvotes
 
   root 'boards#index'
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

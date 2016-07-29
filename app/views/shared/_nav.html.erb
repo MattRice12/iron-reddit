@@ -3,7 +3,7 @@
     <big class="home-link"><%= link_to "Home", root_path %></big>
     <% Board.all.each do |board| %>
         <div class="board-block-index">
-            <big class="board-title"><%= link_to board.name, board, target: "_blank", rel: "nofollow" %></big>
+            <big class="board-title"><%= board_link(board) %></big>
         </div>
     <% end %>
   </div>
@@ -11,6 +11,6 @@
 
 <div class="row">
   <b class="blueit"><%= link_to "Blueit", root_path %></b>
-  <a href=../boards/new class="waves-effect waves-light btn new-board">New Board</a>
+  <a href=../r/new class="waves-effect waves-light btn new-board">New Board</a>
   <a href=../links/new class="waves-effect waves-light btn new-board">New Post</a>
 </div>

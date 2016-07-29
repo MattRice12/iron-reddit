@@ -7,13 +7,15 @@ class BoardsController < ApplicationController
     }
   end
 
-  def show
-    if Board.exists?(params[:id])
-      render template: 'boards/show.html.erb', locals: {
-        board: Board.find(params[:id]),
-        comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC"),
-        links: Link.group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page])
 
+### Get url to say /r/:board.name instead of boards/:id
+  def show
+    if Board.find_by(name: params[:name])
+      board = Board.find_by(name: params[:name])
+      render template: 'boards/show.html.erb', locals: {
+        board: board,
+        comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC"),
+        links: Link.where(board_id: board.id).group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page])
       }
     else
       render html: "Not Found", status: 404

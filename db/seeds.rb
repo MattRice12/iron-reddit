@@ -78,7 +78,7 @@ def comment_phrases
 end
 
 subreddits.each do |sub|
-  board = Board.create!(name: "/r/#{sub}")
+  board = Board.create!(name: sub)
   3.times do
     Link.create!(title: options.sample, board_id: board.id)
   end

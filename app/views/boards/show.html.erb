@@ -27,6 +27,7 @@
 
           <div class="col 10">
             <big class="link-title"><%= link_to link.title, "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></big>
+            <small class="board-title"><%= link_to board.name, board %></small>
             <h6>
               <sup><%= link_to pluralize(link.comments.count, 'Comment'), link %></sup>
               <sup><%= link_to "Share", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>

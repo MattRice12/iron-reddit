@@ -28,9 +28,7 @@ class BoardsController < ApplicationController
 
   def create
     board = Board.new(board_params)
-    upvote = Upvote.new(board_id: params[:board_id])
     if board.save
-      upvote.save
       redirect_to root_path
     else
       flash[:alert] = "Could not be created due to errors."
@@ -66,6 +64,6 @@ class BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:title)
+    params.require(:board).permit(:name)
   end
 end

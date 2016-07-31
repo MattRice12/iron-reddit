@@ -5,16 +5,18 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tag %>
   </head>
 
   <body>
-
-    <% flash.each do |key, value| %>
-      <p> <%= "#{key.titleize}: #{value}" %></p>
-    <% end %>
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+      <% end %>
+    </div>
     <div class="container">
-      <%= render "shared/nav" unless @disable_nav %>
+      <%= render "shared/nav.html.erb" unless @disable_nav %>
 
       <%= yield %>
     </div>

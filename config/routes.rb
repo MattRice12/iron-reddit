@@ -1,6 +1,26 @@
 Rails.application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
+  delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
+
+  get '/sign_up' => 'clearance/users#new', as: 'sign_up'
+
+  resources :passwords,
+  controller: 'clearance/passwords',
+  only: [:create, :new]
+
+  resource :session,
+  controller: 'clearance/sessions',
+  only: [:create]
+
+  resources :users,
+  controller: 'clearance/users',
+  only: Clearance.configuration.user_actions do
+    resource :password,
+    controller: 'clearance/passwords',
+    only: [:create, :edit, :update]
+  end
 
   resources :comments do
     post 'comment_upvote' => "comment#comment_upvote", on: :member
@@ -19,7 +39,6 @@ Rails.application.routes.draw do
     post 'downvote' => "links#downvote", on: :member
   end
 
-  # get ':board', to: 'boards#index', as: :board
   resources :boards, path: '/r/', param: :name
   resources :downvotes
   resources :upvotes
@@ -27,6 +46,4 @@ Rails.application.routes.draw do
   resources :comment_upvotes
 
   root 'links#index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

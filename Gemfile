@@ -33,6 +33,7 @@ gem 'materialize-sass'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'kaminari'
+gem "clearance"
 group :production do
   gem 'rails_12factor'
 end

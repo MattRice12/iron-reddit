@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_filter :disable_nav, only: [:new, :update]
+
   def index
     render template: 'boards/index.html.erb', locals: {
       boards: Board.all
@@ -68,5 +70,9 @@ class BoardsController < ApplicationController
   private
   def board_params
     params.require(:board).permit(:name)
+  end
+  
+  def disable_nav
+    @disable_nav = true
   end
 end

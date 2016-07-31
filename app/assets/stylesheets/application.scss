@@ -9,20 +9,44 @@ body {
   width: 100%;
 }
 
+.btn {
+  background: #C6DDF6;
+  width: 150px;
+  padding: .2%;
+}
+
 .container {
   width: 100%;
-  .blueit {
-    font-size: 400%;
+  border: 1px solid #E1E8ED;
+  .sign-in-out-row {
+    border-bottom: 1px solid #E1E8ED;
+    border-top: 1px solid #E1E8ED;
+    .blueit {
+      font-size: 400%;
+      float: left;
+    }
+    .sign-in-out {
+      padding: 0 0 0 10px;
+      background: #DFECF9;
+      border: 1px solid #E1E8ED;
+      float: right;
+      .welcome {
+        margin: 0 10px 0 10px;
+      }
+    }
+  }
+  .create-new-stuff-row {
+    display: inline-block;
+    float: right;
   }
   .new-board {
     float: right;
-    top: 30px;
   }
   .row {
     margin: 0;
-    background: #F5F8FA;
-    border-top: 1px solid gray;
+    padding: 0;
 
+    background: #F5F8FA;
     .col {
       .page-button /*WHY WONT YOU FUCKING WORK*/{
         float: right;
@@ -38,7 +62,6 @@ body {
     height: 50px;
   }
 }
-
 
 .link-board-show {
   width: 100%;
@@ -93,7 +116,7 @@ h6 {
   padding: 10px;
   padding-bottom: 0;
   margin: 0px;
-  border: 1px solid gray;
+  // border: 1px solid #E1E8ED;
   background: #F5F8FA;
   &:hover {
     background: white;
@@ -107,9 +130,14 @@ h6 {
   padding: 10px;
   margin: 30px;
   background: white;
-  border-bottom: 1px solid gray;
-  border-right: 1px solid gray;
+  border-bottom: 1px solid #F5F8FA;
+  border-right: 1px solid #F5F8FA;
   box-shadow: 0px 5px 5px rgba(0,0,0,.1);
+}
+
+.inline-comment {
+  max-width: 50%;
+  margin-left: 30px;
 }
 
 /************** NEW POST ****************/
@@ -128,7 +156,7 @@ h6 {
 .blocky-block {
   margin: 10px;
   &:hover {
-    background: #F5F8FA
+    background: #F5F8FA;
   }
   .board-title-index {
     font-size: xx-large;
@@ -142,16 +170,12 @@ h6 {
 /************** BOARD-INDEX ****************/
 /************** BOARD-SHOW ****************/
 
-.board-content-block-show {
-  display: flex;
-  font-size: 200%;
-  font-weight: bold;
-  border: 1px solid gray;
-  background: #F5F8FA;
-}
-
 .board-name-show {
   position: relative;
   top: -58px;
   left: 160px;
+}
+
+.row-board-title {
+  font-size: 200%;
 }

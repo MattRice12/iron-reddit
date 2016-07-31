@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row row-board-title">
 
   <div class="board-content-block-show">
 
@@ -23,6 +23,24 @@
 
     <div class="col 10">
       <big class="link-title-show"><%= link_to link.title, "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></big>
+    </div>
+  </div>
+  <div class="inline-comment">
+
+    <div>
+      <%= form_for(comment) do |f| %>
+
+      <div><label for="body">Comment: </label></div>
+
+      <div><%= f.text_area :body, placeholder: "Respond to Poster"%></div>
+
+      <%= f.hidden_field :link_id, value: link.id %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+      <% end %>
     </div>
 
   </div>

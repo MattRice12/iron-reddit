@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :require_login, only: [:create, :destroy]
+  before_filter :disable_nav, only: [:new, :update]
   def index
     render template: 'comments/index.html.erb', locals: {
       comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC").page(params[:page])
@@ -61,6 +63,10 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :link_id)
+  end
+
+  def disable_nav
+    @disable_nav = true
   end
 end

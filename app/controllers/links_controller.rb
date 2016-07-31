@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_filter :disable_nav, only: [:new, :update]
+
   def index
     render template: 'links/index.html.erb', locals: {
       links: Link.group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page]),
@@ -10,6 +12,8 @@ class LinksController < ApplicationController
     if Link.exists?(params[:id])
       render template: 'links/show.html.erb', locals: {
         link: Link.find(params[:id]),
+
+        comment: Comment.new,
 
         comments: Comment.group(:id).order("SUM(comment_upvotes_count - comment_downvotes_count) DESC"),
 
@@ -23,7 +27,8 @@ class LinksController < ApplicationController
   def new
     render locals: {
       link: Link.new,
-      boards: Board.all
+      boards: Board.all,
+      comment: Comment.new
     }
   end
 
@@ -37,6 +42,7 @@ class LinksController < ApplicationController
       flash[:alert] = "Could not be created due to errors."
       render template: 'links/new.html.erb', locals: {
         link: link,
+        comment: Comment.new
       }
     end
   end
@@ -68,5 +74,13 @@ class LinksController < ApplicationController
   private
   def link_params
     params.require(:link).permit(:title)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
+
+  def disable_nav
+    @disable_nav = true
   end
 end

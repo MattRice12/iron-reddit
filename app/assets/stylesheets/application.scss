@@ -131,6 +131,13 @@ h6 {
   }
 }
 
+.highlight {
+  background: #C6DDF6;
+  &:hover {
+    background: #DFECF9;
+  }
+}
+
 /************** SHOW ****************/
 
 .link-content-block-show {

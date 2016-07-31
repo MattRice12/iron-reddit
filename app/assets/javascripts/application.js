@@ -29,4 +29,15 @@ $(document).ready(function () {
     var print_upvotes = (total_votes - 1);
     find_vote_count.html(print_upvotes);
   });
+
+  $('.toppity-top').on('mousedown', function() {
+
+    $top = $('.link-content-block-index');
+
+    if ($top.first().hasClass('highlight')) {
+      $top.removeClass('highlight');
+    } else {
+      $top.first().addClass('highlight');
+    }
+  });
 });

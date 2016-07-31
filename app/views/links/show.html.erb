@@ -14,11 +14,11 @@
   <div class="link-content-block-show">
 
     <div class="col 2 like-hate">
-      <small class="upvote"><%= link_to "Like", upvotes_path(link_id: link.id), method: :post %></small>
+      <small class="upvote"><%= link_to "Like", upvotes_path(link_id: link.id), remote: true, method: :post %></small>
 
       <small class="vote_count"><%= (link.upvotes_count) - (link.downvotes_count) %></small>
 
-      <small class="downvote"><%= link_to "Hate", downvotes_path(link_id: link.id), method: :post %></small>
+      <small class="downvote"><%= link_to "Hate", downvotes_path(link_id: link.id), remote: true, method: :post %></small>
     </div>
 
     <div class="col 10">
@@ -53,11 +53,11 @@
         <div class="link-content-block-index">
           <div class="col 2 like-hate">
 
-            <small class="upvote"><%= link_to "Like", comment_upvotes_path(comment_id: comment.id), method: :post %></small>
+            <small class="upvote"><%= link_to "Like", comment_upvotes_path(comment_id: comment.id), remote: true, method: :post %></small>
 
             <small class="vote_count"><%= comment.comment_upvotes_count - comment.comment_downvotes_count %></small>
 
-            <small class="downvote"><%= link_to "Hate", comment_downvotes_path(comment_id: comment.id), method: :post %></small>
+            <small class="downvote"><%= link_to "Hate", comment_downvotes_path(comment_id: comment.id), remote: true,  method: :post %></small>
 
           </div>
 

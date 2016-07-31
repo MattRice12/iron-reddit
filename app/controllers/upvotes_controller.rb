@@ -1,7 +1,7 @@
 class UpvotesController < ApplicationController
   def create
     Upvote.create!(link_id: params[:link_id])
-    redirect_to :back
+    # redirect_to :back
   end
 
   def destroy

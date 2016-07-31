@@ -12,5 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require materialize
 //= require_tree .
+
+$(document).ready(function () {
+  $('.upvote').on('click', function () {
+    var find_vote_count = $(this).closest('.like-hate').find('.vote_count');
+    var total_votes = +find_vote_count.text();
+    var print_upvotes = (total_votes + 1);
+    find_vote_count.html(print_upvotes);
+  });
+
+  $('.downvote').on('click', function () {
+    var find_vote_count = $(this).closest('.like-hate').find('.vote_count');
+    var total_votes = +find_vote_count.text();
+    var print_upvotes = (total_votes - 1);
+    find_vote_count.html(print_upvotes);
+  });
+});

@@ -153,6 +153,9 @@ h6 {
 .inline-comment {
   max-width: 50%;
   margin: 0 0 20px 30px;
+  textarea#comment_body {
+    background: white;
+  }
 }
 
 /************** NEW POST ****************/

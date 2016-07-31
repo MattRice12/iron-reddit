@@ -1,49 +1,42 @@
 <div class="row row-board-title">
-
   <div class="board-content-block-show">
-
     <div class="col 10 board-name-show">
       <div class="link-board-show"><%= board_link(board) %></div>
     </div>
-
   </div>
 </div>
 
 <div class="row">
-
   <div class="link-content-block-show">
 
     <div class="col 2 like-hate">
       <small class="upvote"><%= link_to "Like", upvotes_path(link_id: link.id), remote: true, method: :post %></small>
-
       <small class="vote_count"><%= (link.upvotes_count) - (link.downvotes_count) %></small>
-
       <small class="downvote"><%= link_to "Hate", downvotes_path(link_id: link.id), remote: true, method: :post %></small>
     </div>
 
     <div class="col 10">
       <big class="link-title-show"><%= link_to link.title, "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></big>
     </div>
+
   </div>
   <div class="inline-comment">
-
     <div>
       <%= form_for(comment) do |f| %>
-
       <div><label for="body">Comment: </label></div>
-
       <div><%= f.text_area :body, placeholder: "Respond to Poster"%></div>
-
       <%= f.hidden_field :link_id, value: link.id %>
-
-      <div class="actions">
+      <div class="waves-effect waves-light btn create-comment-button">
         <%= f.submit %>
       </div>
-
       <% end %>
     </div>
-
   </div>
+</div>
+
+
+<div id="top-link">
+  <div class="waves-effect waves-light btn toppity-top">Top Post</div>
 </div>
 
 <div class="row">

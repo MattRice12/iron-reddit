@@ -16,13 +16,7 @@
   </div>
 
   <div class="submit-field">
-    <%= form.submit %>
+      <div><%= form.submit class: "waves-effect waves-light btn sign-in" %></div>
   </div>
 
-  <div class="other-links">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
-    <% end %>
-    <%= link_to t(".forgot_password"), new_password_path %>
-  </div>
 <% end %>

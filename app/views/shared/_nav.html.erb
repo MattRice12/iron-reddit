@@ -13,12 +13,13 @@
   <div class="sign-in-out">
     <% if signed_in? %>
       <b class="welcome">Welcome <%= current_user.username %></b>
-      <div class="waves-effect waves-light btn sign-out"><%= button_to "Sign out", sign_out_path, method: :delete %></div>
+      <div><%= link_to "Sign out", sign_out_path, class: "waves-effect waves-light btn sign-out", method: :delete %></div>
     <% else %>
-      <div class="waves-effect waves-light btn sign-up"><%= button_to "Sign Up", sign_up_path, method: :get %></div>
-      <div class="waves-effect waves-light btn sign-in"><%= link_to "Sign in", sign_in_path %></div>
+      <div><%= link_to "Sign Up", sign_up_path, class: "waves-effect waves-light btn sign-in", method: :post  %></div>
+      <div><%= link_to "Sign In", sign_in_path, class: "waves-effect waves-light btn sign-in", method: :get  %></div>
     <% end %>
   </div>
+
   <div class="title">
     <div class="blueit"><%= link_to "Blueit", root_path %></div>
   </div>

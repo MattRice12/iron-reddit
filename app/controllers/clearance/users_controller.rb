@@ -50,7 +50,7 @@ class Clearance::UsersController < Clearance::BaseController
     if @user.update(user_params)
       redirect_to users_path
     else
-      flash[:alert] = "Could not be edited due to errors."
+      flash[:alert] = "You broke it, Dane. It was working until you clicked that button. Gee thanks."
       render template: 'users/edit.html.erb', locals: {
         user: @user
       }

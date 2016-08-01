@@ -18,18 +18,6 @@ body {
   }
 }
 
-.edit-delete-block {
-  position: relative;
-  bottom: 5px;
-  .edit-del-btn {
-    width: 7%;
-    height: 30px;
-    font-size: medium;
-    padding: 0px;
-    margin: 5px;
-  }
-}
-
 .container {
   width: 100%;
   border: 1px solid #E1E8ED;
@@ -85,38 +73,30 @@ body {
   }
 }
 
-.home-link {
-  margin-right: 10px;
-}
-
-.upvote {
-  color: #FF4400;
-}
-
-.downvote {
-  color: #9393FF;
-}
-
-.board-link {
-  margin: 0 5px 0 5px;
-  padding-left: 10px;
-  border-left: 1px solid #E1E8ED;
-}
-
-.user-link {
-  margin: 0 0 0 5px;
-  padding-right: 10px;
-  border-right: 1px solid #E1E8ED;
-}
-
 .nav-boards {
   float: left;
   display: inline-flex;
+  .home-link {
+    margin-right: 10px;
+  }
+  .board-link {
+    margin: 0 5px 0 5px;
+    padding-left: 10px;
+    border-left: 1px solid #E1E8ED;
+  }
+  .user-link {
+    margin: 0 0 0 5px;
+    padding-right: 10px;
+    border-right: 1px solid #E1E8ED;
+  }
   .board-title {
     margin: 10px;
     font-size: 80%;
+    position: relative;
+    top: 3px;
   }
 }
+
 nav.pagination {
   padding: 10px;
   a {
@@ -137,9 +117,6 @@ h6 {
   }
 }
 
-.like-hate {
-  min-width: 90px;
-}
 /************** INDEX ****************/
 
 .link-content-block-index {
@@ -151,6 +128,15 @@ h6 {
   background: #F5F8FA;
   &:hover {
     background: white;
+  }
+  .like-hate {
+    min-width: 90px;
+    .upvote {
+      color: #FF4400;
+    }
+    .downvote {
+      color: #9393FF;
+    }
   }
 }
 
@@ -203,6 +189,17 @@ h6 {
   .board-title-index {
     font-size: xx-large;
     margin-left: 30px;
+    .edit-delete-block {
+      position: relative;
+      bottom: 5px;
+      .edit-del-btn {
+        width: 7%;
+        height: 30px;
+        font-size: medium;
+        padding: 0px;
+        margin: 5px;
+      }
+    }
   }
   .board-posts-count {
     margin-left: 30px;
@@ -211,8 +208,6 @@ h6 {
 
 /************** BOARD-INDEX ****************/
 /************** BOARD-SHOW ****************/
-
-
 
 .row-board-title {
   display: none;

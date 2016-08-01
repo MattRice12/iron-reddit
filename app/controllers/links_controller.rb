@@ -70,11 +70,11 @@ class LinksController < ApplicationController
 
   private
   def link_params
-    params.require(:link).permit(:title)
+    params.require(:link).permit(:title, :board_id)
   end
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :link_id)
   end
 
   def disable_nav

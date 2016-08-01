@@ -1,14 +1,10 @@
 <%= render '/shared/nav2.html.erb' %>
-
 <div class="row new-post">
-
   <h2 class="new-post-title"><%= form_title %></h2>
-
 </div>
 
 <%= form_for(board) do |f| %>
   <div><label for="body">Board Name: </label></div>
-
   <div><label><%= "/r/" %></label><%= f.text_field :name, placeholder: "Board Title" %></div>
 
   <a>

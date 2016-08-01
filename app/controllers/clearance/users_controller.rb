@@ -9,6 +9,22 @@ class Clearance::UsersController < Clearance::BaseController
     skip_before_filter :authorize, only: [:create, :new], raise: false
   end
 
+  def index
+    render template: 'users/index.html.erb', locals: {
+      users: User.all
+    }
+  end
+
+  def show
+    if User.exists?(params.fetch(:id))
+      render template: 'users/show.html.erb', locals: {
+        user: User.find(params.fetch(:id)),
+      }
+    else
+      render html: "Not Found", status: 404
+    end
+  end
+
   def new
     @user = user_from_params
     render template: "users/new"
@@ -23,6 +39,29 @@ class Clearance::UsersController < Clearance::BaseController
     else
       render template: "users/new"
     end
+  end
+
+  def edit
+    @user = user_from_params
+    render template: "users/edit"
+  end
+
+  def update
+    @user = user_from_params
+    if @user.update(user_params)
+      redirect_to user
+    else
+      flash[:alert] = "Could not be edited due to errors."
+      render template: 'users/edit.html.erb', locals: {
+        user: @user
+      }
+    end
+  end
+
+  def destroy
+    user = User.find(params.fetch(:id))
+    user.destroy
+    redirect_to users_path, :notice => "The user has been deleted"
   end
 
   private

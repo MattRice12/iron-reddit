@@ -43,20 +43,22 @@ body {
       }
     }
   }
-  .create-new-stuff-row {
+  .create-new-stuff-row /* nav bar buttons */ {
     display: inline-block;
+    padding-left: 10%;
     float: right;
-  }
-  .new-board {
-    float: right;
+    .create-new-stuff {
+      .new-board {
+        float: right;
+      }
+    }
   }
   .row {
     margin: 0;
     padding: 0;
-
     background: #F5F8FA;
     .col {
-      .page-button /*WHY WONT YOU FUCKING WORK*/{
+      .page-button {
         float: right;
         padding-right: 0;
       }
@@ -69,10 +71,6 @@ body {
     display: block;
     height: 50px;
   }
-}
-
-.link-board-show {
-  width: 100%;
 }
 
 .home-link {
@@ -142,6 +140,7 @@ h6 {
 
 .link-content-block-show {
   display: flex;
+  max-width: 80%;
   padding: 10px;
   margin: 30px;
   background: white;
@@ -188,14 +187,20 @@ h6 {
 /************** BOARD-INDEX ****************/
 /************** BOARD-SHOW ****************/
 
-.board-name-show {
-  position: relative;
-  top: -58px;
-  left: 160px;
-}
+
 
 .row-board-title {
+  display: none;
+  padding-left: 50px;
   font-size: 200%;
+  .board-name-show {
+    position: relative;
+    top: -58px;
+    left: 160px;
+    .link-board-show {
+      width: 100%;
+    }
+  }
 }
 
 .other-links {

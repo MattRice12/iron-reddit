@@ -45,7 +45,7 @@ class BoardsController < ApplicationController
   end
 
   def update
-    board = Board.find_by(name: params[:name])
+    board = Board.find_by(id: params[:name])
     if board.update(board_params)
       redirect_to boards_path
     else

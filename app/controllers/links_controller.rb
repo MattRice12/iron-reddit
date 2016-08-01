@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :require_login, only: [:create, :update, :destroy]
   before_filter :disable_nav, only: [:new, :update]
 
   def index

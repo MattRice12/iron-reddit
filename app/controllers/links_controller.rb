@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
-  before_filter :disable_nav, only: [:new, :update, :edit, :create]
+  # before_filter :disable_nav, only: [:new, :update, :edit, :create]
 
   def index
     render template: 'links/index.html.erb', locals: {

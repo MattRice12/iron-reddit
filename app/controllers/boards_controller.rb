@@ -59,7 +59,7 @@ class BoardsController < ApplicationController
   def destroy
     board = Board.find_by(name: params[:name])
     board.destroy
-    redirect_to root_path, :notice => "Your board has been deleted"
+    redirect_to boards_path, :notice => "This board has been deleted"
   end
 
   private

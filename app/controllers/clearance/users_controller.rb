@@ -32,7 +32,6 @@ class Clearance::UsersController < Clearance::BaseController
 
   def create
     @user = user_from_params
-
     if @user.save
       sign_in @user
       redirect_back_or url_after_create
@@ -49,7 +48,7 @@ class Clearance::UsersController < Clearance::BaseController
   def update
     @user = user_from_params
     if @user.update(user_params)
-      redirect_to user
+      redirect_to users_path
     else
       flash[:alert] = "Could not be edited due to errors."
       render template: 'users/edit.html.erb', locals: {

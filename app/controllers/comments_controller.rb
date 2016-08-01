@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :require_login, only: [:create, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_filter :disable_nav, only: [:new, :update, :edit, :create]
   def index
     render template: 'comments/index.html.erb', locals: {

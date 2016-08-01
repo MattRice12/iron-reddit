@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col 2 nav-boards">
     <big class="home-link"><%= link_to "Home", root_path %></big>
-    <big class="board-link"><%= link_to "[All Boards]", boards_path %></big>
-    <big class="user-link"><%= link_to "[All Users]", users_path %></big>
+    <big class="board-link"><%= link_to "All Boards", boards_path %></big>
+    <big class="user-link"><%= link_to "All Users", users_path %></big>
 
     <% Board.all.each do |board| %>
         <div class="board-block-index">

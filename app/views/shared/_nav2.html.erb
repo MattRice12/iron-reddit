@@ -1,3 +1,18 @@
+<div class="row">
+  <div class="col 2 nav-boards">
+    <big class="home-link"><%= link_to "Home", root_path %></big>
+    <big class="board-link"><%= link_to "All Boards", boards_path %></big>
+    <big class="user-link"><%= link_to "All Users", users_path %></big>
+
+
+    <% Board.all.each do |board| %>
+        <div class="board-block-index">
+            <big class="board-title"><%= board_link(board) %></big>
+        </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="row sign-in-out-row">
   <div class="sign-in-out">
     <% if signed_in? %>

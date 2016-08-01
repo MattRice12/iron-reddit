@@ -97,11 +97,24 @@ body {
   color: #9393FF;
 }
 
+.board-link {
+  margin: 0 5px 0 5px;
+  padding-left: 10px;
+  border-left: 1px solid #E1E8ED;
+}
+
+.user-link {
+  margin: 0 0 0 5px;
+  padding-right: 10px;
+  border-right: 1px solid #E1E8ED;
+}
+
 .nav-boards {
   float: left;
   display: inline-flex;
   .board-title {
     margin: 10px;
+    font-size: 80%;
   }
 }
 nav.pagination {

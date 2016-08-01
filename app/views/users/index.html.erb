@@ -1,9 +1,11 @@
 <ol class="board-title-block">
   <% users.each do |user| %>
   <li class="blocky-block">
-    <div class="board-title-index"><%= link_to "/u/#{user.username} -- #{user.email}", user %>
-      <small><%= link_to "Edit", user, class: "waves-effect waves-light btn edit-user", method: :put  %></small>
-      <small><%= link_to "Delete", user, class: "waves-effect waves-light btn delete-user", method: :delete  %></small>
+    <div class="board-title-index"><%= link_to "/u/#{user.username}", user %>
+      <small class="edit-delete-block">
+        <small><%= link_to "Edit", user, class: "waves-effect waves-light btn edit-del-btn", method: :put  %></small>
+        <small><%= link_to "Delete", user, class: "waves-effect waves-light btn edit-del-btn", method: :delete  %></small>
+      </small>
     </div>
   </li>
   <% end %>

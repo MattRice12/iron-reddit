@@ -1,7 +1,11 @@
 <div class="row">
   <div class="user-block-show">
     <div class="col 10 user-name-show">
-      <h3 class="name-show"><%= "#{user.username} -- #{user.email}" %></h3>
+      <h3 class="name-show"><%= "#{user.username} -- #{user.email}" %>
+        <small class="edit-delete-block">
+          <small><%= link_to "Edit", user, class: "waves-effect waves-light btn edit-del-btn", method: :put  %></small>
+          <small><%= link_to "Delete", user, class: "waves-effect waves-light btn edit-del-btn", method: :delete  %></small>
+        </small></h3>
     </div>
   </div>
 </div>

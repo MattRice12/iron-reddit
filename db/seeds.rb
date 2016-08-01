@@ -92,3 +92,7 @@ end
 300.times do
   Upvote.create!(link_id: rand(1..30))
 end
+
+CELEB_1.each do |name|
+  User.create!(username: name, email: "#{name}@example.com", password: "password")
+end

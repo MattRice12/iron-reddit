@@ -2,9 +2,11 @@
   <% boards.each do |board| %>
   <div class="blocky-block">
     <div class="board-title-index"><%= link_to "/r/#{board.name}: #{board.name.capitalize}", "/r/#{board.name}" %>
-      <small><%= link_to "Edit", edit_board_path(board.name), class: "waves-effect waves-light btn edit-board" %></small>
+      <small class="edit-delete-block">
+        <small><%= link_to "Edit", edit_board_path(board.name), class: "waves-effect waves-light btn edit-del-btn" %></small>
 
-      <small><%= link_to "Delete", "/r/#{board.name}", class: "waves-effect waves-light btn delete-board", method: :delete  %></small>
+        <small><%= link_to "Delete", "/r/#{board.name}", class: "waves-effect waves-light btn edit-del-btn", method: :delete  %></small>
+      </small>
     </div>
     <bold class="board-posts-count"><%= "Posts: #{board.links.count}" %></bold>
   </div>

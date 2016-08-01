@@ -18,6 +18,18 @@ body {
   }
 }
 
+.edit-delete-block {
+  position: relative;
+  bottom: 5px;
+  .edit-del-btn {
+    width: 7%;
+    height: 30px;
+    font-size: medium;
+    padding: 0px;
+    margin: 5px;
+  }
+}
+
 .container {
   width: 100%;
   border: 1px solid #E1E8ED;

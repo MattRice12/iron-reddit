@@ -19,6 +19,7 @@ body {
 
 .container {
   width: 100%;
+  max-width:1280px;
   border: 1px solid #E1E8ED;
   background: #F5F8FA;
   .sign-in-out-row {
@@ -64,15 +65,20 @@ body {
     }
   }
   .nav-row {
+    margin-right: 19px;
     display: flex;
-    width: 95%;
+    width: 93%;
     .board-block-index {
       height: 20px;
-      max-width: 80%;
+      max-width: 1133px;
       overflow-y: scroll;
       white-space: nowrap;
     }
   }
+}
+
+::-webkit-scrollbar {
+    height: 0px;  /* remove scrollbar space */
 }
 
 .select-box {
@@ -84,8 +90,12 @@ body {
 
 .nav-boards {
   float: left;
+  padding: 0;
   display: inline-flex;
-  min-width: 230px;
+  min-width: 240px;
+  div {
+    max-width: 97%;
+  }
   .home-link {
     margin-right: 10px;
   }

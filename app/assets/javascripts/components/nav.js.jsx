@@ -1,13 +1,19 @@
 var Nav = React.createClass({
   render: function() {
     return (
-      <div className="row">
-        <div className="col 2 nav-boards">
-          <a className="home-link" href="/">Home</a>
-          <a className="board-link" href="/r">All Boards</a>
-          <a className="user-link" href="/users">All Users</a>
+        <div className="row nav-row">
+          <div className="col 2 nav-boards">
+            <a className="home-link" href="/">Home</a>
+            <a className="board-link" href="/r">All Boards</a>
+            <a className="user-link" href="/users">All Users</a>
+          </div>
+          <div className="board-block-index">
+            {this.props.boards.map(function(board) {
+            return (<a key={board.id} className="board-title" href="/r/">{board.name}</a>)
+            })
+          }
+          </div>
         </div>
-      </div>
     )
   }
 });

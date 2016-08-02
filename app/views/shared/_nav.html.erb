@@ -1,12 +1,6 @@
 <div class="row">
   <div class="col 2 nav-boards">
-    <%= react_component("Nav") %>
-
-    <% Board.all.each do |board| %>
-        <div class="board-block-index">
-            <big class="board-title"><%= board_link(board) %></big>
-        </div>
-    <% end %>
+    <%= react_component("Nav", boards: Board.all) %>
   </div>
 </div>
 

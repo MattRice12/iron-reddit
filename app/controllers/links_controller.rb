@@ -4,7 +4,7 @@ class LinksController < ApplicationController
 
   def index
     render template: 'links/index.html.erb', locals: {
-      links: Link.group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page]),
+      links: Link.includes(:comments, :board).group(:id).order("SUM(upvotes_count - downvotes_count) DESC").page(params[:page]),
       board: Board.group(:id).joins(:links).find_by("boards.id = links.board_id")
     }
   end

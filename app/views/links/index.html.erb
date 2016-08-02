@@ -20,7 +20,7 @@
         <small class="board-title"><%= board_link(link.board) %></small>
 
         <h6>
-          <sup><%= link_to pluralize(link.comments.count, 'Comment'), link %></sup>
+          <sup><%= link_to pluralize(link.comments.length, 'Comment'), link %></sup>
           <sup><%= link_to "Share", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
           <sup><%= link_to "Save", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>
           <sup><%= link_to "Hide", "http://www.rubyonrails.org/", target: "_blank", rel: "nofollow" %></sup>

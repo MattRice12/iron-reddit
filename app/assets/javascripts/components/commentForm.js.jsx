@@ -14,9 +14,10 @@ const Comment = React.createClass({
       contentType: "application/json",
       success: (response) => {
         console.log(response);
-      }.bind(this)
+      }
     });
   },
+
   render: function() {
     return (
         <form className="new_comment" onSubmit={this.postComment}>

@@ -58,7 +58,8 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params.fetch(:id))
     comment.destroy
-    redirect_to root_path, :notice => "Your comment has been deleted"
+    flash[:alert] = "Your comment has been deleted"
+    redirect_to :back
   end
 
   private

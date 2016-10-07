@@ -23,7 +23,7 @@ const Comment = React.createClass({
         <form className="new_comment" onSubmit={this.postComment}>
           <label name="body">Body</label>
           <input type="text" name="body" ref="body" />
-          <input type="submit" value="Post Comment" />
+          <input type="submit" value="Post Comment" className="btn"/>
         </form>
     )
   }

@@ -8,6 +8,10 @@ var Delete = React.createClass({
         window.location.reload();
     });
   },
+  //
+  // componentDidMount: function() {
+  //
+  // }
 
   render: function() {
     return (

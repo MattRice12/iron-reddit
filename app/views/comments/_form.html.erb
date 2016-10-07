@@ -9,8 +9,8 @@
   <%= f.hidden_field :link_id, value: params.fetch(:link) %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <a class="waves-effect waves-light btn">
-    <%= f.submit %>
+  <a>
+    <%= f.submit "Create Comment", class: 'btn' %>
   </a>
 
 <% end %>

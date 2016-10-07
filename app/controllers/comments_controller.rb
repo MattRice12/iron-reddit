@@ -27,8 +27,12 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment_upvote = CommentUpvote.new(comment_id: params[:comment_id])
     if comment.save
-      comment_upvote.save
-      redirect_to comment.link
+      if request.xhr?
+        comment_upvote.save
+        render json: comment
+      else
+        redirect_to comment.link
+      end
     else
       flash[:alert] = "Could not be created due to errors."
       render template: 'comments/new.html.erb', locals: {
@@ -59,7 +63,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params.fetch(:id))
     if comment.destroy
       if request.xhr?
-        return flash[:alert] = "Your comment has been deleted" 
+        return flash[:alert] = "Your comment has been deleted"
       end
       redirect_to :back
     end

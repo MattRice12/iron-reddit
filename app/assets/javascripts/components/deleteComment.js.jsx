@@ -4,9 +4,8 @@ var Delete = React.createClass({
       url: "/comments/" + this.props.comment.id,
       method: "DELETE",
       dateType: "JSON",
-      contentType: "application/json",
-    }).done(function (response) {
-      window.location.href="/links" + this.props.link.id
+      }).done(function (response) {
+        window.location.reload();
     });
   },
 
@@ -17,6 +16,3 @@ var Delete = React.createClass({
     )
   }
 });
-
-
-// <sup><%= link_to "Delete", comment_path(id: comment.id), method: :delete %></sup>

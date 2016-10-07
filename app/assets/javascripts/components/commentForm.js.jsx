@@ -1,4 +1,3 @@
-
 const Comment = React.createClass({
   postComment: function(e) {
     e.preventDefault();
@@ -12,13 +11,11 @@ const Comment = React.createClass({
         link_id: this.props.link.id,
         body: this.refs.body.value
       }),
-      dataType: "json",
       contentType: "application/json",
       success: (response) => {
         console.log(response);
       }.bind(this)
     });
-
   },
   render: function() {
     return (
@@ -30,13 +27,3 @@ const Comment = React.createClass({
     )
   }
 });
-// <!-- <div>
-//   <%= form_for(comment) do |f| %>
-//   <div><label for="body">Comment: </label></div>
-//   <div><%= f.text_area :body, placeholder: "Respond to Poster"%></div>
-//   <%= f.hidden_field :link_id, value: link.id %>
-//   <div class="waves-effect waves-light btn create-comment-button">
-//     <%= f.submit %>
-//   </div>
-//   <% end %>
-// </div> -->

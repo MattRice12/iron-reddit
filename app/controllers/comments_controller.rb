@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     comment_upvote = CommentUpvote.new(comment_id: params[:comment_id])
     if comment.save
       comment_upvote.save
-      redirect_to :back
+      redirect_to comment.link
     else
       flash[:alert] = "Could not be created due to errors."
       render template: 'comments/new.html.erb', locals: {

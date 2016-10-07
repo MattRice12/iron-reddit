@@ -77,22 +77,23 @@ def comment_phrases
   [STANDALONE.sample, [START.sample + MID.sample].join]
 end
 
+
+CELEB_1.each do |name|
+  User.create!(username: name, email: "#{name}@example.com", password: "password")
+end
+
 subreddits.each do |subr|
   board = Board.new(name: subr)
   board.save
   3.times do
-    Link.create!(title: options.sample, board_id: board.id)
+    Link.create!(title: options.sample, board_id: board.id, user_id: rand(1..7))
   end
 end
 
 100.times do
-  Comment.create!(body: comment_phrases.sample, link_id: rand(1..30))
+  Comment.create!(body: comment_phrases.sample, link_id: rand(1..30), user_id: rand(1..7))
 end
 
 300.times do
   Upvote.create!(link_id: rand(1..30))
-end
-
-CELEB_1.each do |name|
-  User.create!(username: name, email: "#{name}@example.com", password: "password")
 end

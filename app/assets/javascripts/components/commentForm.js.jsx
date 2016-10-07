@@ -3,6 +3,7 @@ const Comment = React.createClass({
     e.preventDefault();
     console.log('body text', );
     console.log('this.props.link.id', this.props.link.id);
+    console.log('this.props.user.id', this.props.user.id);
 
     $.ajax({
       url: '../comments/',
@@ -10,7 +11,8 @@ const Comment = React.createClass({
       dataType: 'JSON',
       data: JSON.stringify({
         link_id: this.props.link.id,
-        body: this.refs.body.value
+        body: this.refs.body.value,
+        user_id: this.props.user.id
       }),
       contentType: "application/json",
       success: (response) => {

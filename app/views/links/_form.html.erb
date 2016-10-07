@@ -8,6 +8,8 @@
     <%= f.collection_select :board_id, Board.all, :id, :name, { prompt: "Choose a category" }, class: "browser-default" %>
   </div>
 
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <div>
     <div><label for="body">Post Name: </label></div>
     <div><%= f.text_field :title, placeholder: "Stop Writing Clickbait!!! Click Here to Find Out How!" %></div>

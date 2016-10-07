@@ -17,10 +17,6 @@ body {
   }
 }
 
-.react-clear {
-  cursor: pointer;
-}
-
 .container {
   width: 100%;
   max-width:1280px;
@@ -194,6 +190,14 @@ h6 {
   textarea#comment_body {
     background: white;
   }
+}
+
+.react-clear {
+  cursor: pointer;
+}
+
+.sub-links {
+  display: inline-flex;
 }
 
 /************** NEW POST ****************/

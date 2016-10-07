@@ -19,8 +19,7 @@ Rails.application.routes.draw do
     post 'comment_downvote' => "comment#comment_downvote", on: :member
   end
 
-  resources :users,
-  controller: 'clearance/users' do
+  resources :users, controller: 'clearance/users' do
     post 'upvote' => "links#upvote", on: :member
     post 'downvote' => "links#downvote", on: :member
     post 'comment_upvote' => "comments#comment_upvote"

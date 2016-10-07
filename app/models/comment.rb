@@ -6,4 +6,8 @@ class Comment < ApplicationRecord
 
   validates :body, null: false
 
+  def as_json(_ = nil)
+    super(include: [:body, :link_id])
+  end
+
 end

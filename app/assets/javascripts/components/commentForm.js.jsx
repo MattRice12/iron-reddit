@@ -7,6 +7,7 @@ const Comment = React.createClass({
     $.ajax({
       url: '../comments/',
       method: 'POST',
+      dataType: 'JSON',
       data: JSON.stringify({
         link_id: this.props.link.id,
         body: this.refs.body.value
@@ -15,7 +16,9 @@ const Comment = React.createClass({
       success: (response) => {
         console.log(response);
       }
-    });
+    }).done(function (response) {
+      window.location.reload();
+  });
   },
 
   render: function() {
